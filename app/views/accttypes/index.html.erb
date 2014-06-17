@@ -1,0 +1,27 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Accttype</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @accttypes.each do |accttype| %>
+      <tr>
+        <td><% begin %><%= Accttype.find(accttype.id).user.username %><% rescue %><%= "" %><% end %></td>
+        <td><%= accttype.accttype %></td>
+        <td><%= link_to 'Show', accttype, {:class => "btn btn-primary", :type => "button"} %></td>
+        <td><%= link_to 'Edit', edit_accttype_path(accttype), {:class => "btn btn-primary", :type => "button"} %></td>
+        <td><%= link_to 'Destroy', accttype, method: :delete, confirm: 'Are you sure?',:class => "btn btn-primary" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Accttype', new_accttype_path,{:class => "btn btn-primary", :type => "button"} %>

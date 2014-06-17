@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= User.find(@environment.user_id).username %>
+</p>
+
+<p>
+  <strong>Environment:</strong>
+  <%= @environment.environment %>
+</p>
+
+<%= link_to 'Edit', edit_environment_path(@environment) %> |
+<%= link_to 'Back', environments_path %>

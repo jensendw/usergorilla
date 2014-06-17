@@ -1,0 +1,45 @@
+<%= form_for(@user, url: {action: "do_create_account"},:html => {:multipart => true}) do |f| %>
+    <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :username %><br>
+      <%= f.text_field :username, readonly: true, value: "mooh" %>
+    </div>
+    <div class="field">
+      <%= f.label :ingroups %><br>
+      <%= f.text_field :ingroups %>
+    </div>
+    <div class="field">
+      <%= f.label :shell %><br>
+      <%= f.text_field :shell %>
+    </div>
+    <div class="field">
+      <%= f.label :password %><br>
+      <%= f.text_field :password %>
+    </div>
+    <div class="field">
+      <%= f.label :realname %><br>
+      <%= f.text_field :realname %>
+    </div>
+    <div class="field">
+      <%= f.label :ensure %><br>
+      <%= f.text_field :ensure %>
+    </div>
+    <div class="field">
+      <%= f.label :ldapowner %><br>
+      <%= f.text_field :ldapowner %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

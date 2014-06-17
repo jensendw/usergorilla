@@ -1,0 +1,27 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Environment</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @environments.each do |environment| %>
+      <tr>
+        <td><%= Environment.find(environment.id).user.username %></td>
+        <td><%= environment.environment %></td>
+        <td><%= link_to 'Show', environment, {:class => "btn btn-primary", :type => "button"} %></td>
+        <td><%= link_to 'Edit', edit_environment_path(environment), {:class => "btn btn-primary", :type => "button"} %></td>
+        <td><%= link_to 'Destroy', environment, method: :delete, confirm: 'Are you sure?',:class => "btn btn-primary" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Environment', new_environment_path,{:class => "btn btn-primary", :type => "button"} %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong>Ingroups:</strong>
+  <%= @user.ingroups %>
+</p>
+
+<p>
+  <strong>Shell:</strong>
+  <%= @user.shell %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @user.password %>
+</p>
+
+<p>
+  <strong>Realname:</strong>
+  <%= @user.realname %>
+</p>
+
+<p>
+  <strong>Ensure:</strong>
+  <%= @user.ensure %>
+</p>
+
+<p>
+  <strong>Ldapowner:</strong>
+  <%= @user.ldapowner %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

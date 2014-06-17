@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @uid.user_id %>
+</p>
+
+<p>
+  <strong>Uid:</strong>
+  <%= @uid.uid %>
+</p>
+
+<%= link_to 'Edit', edit_uid_path(@uid) %> |
+<%= link_to 'Back', uids_path %>

@@ -1,0 +1,28 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Key</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @sshkeys.each do |sshkey| %>
+      <tr>
+        <td><% begin %><%= Sshkey.find(sshkey.id).user.username %><% rescue %><%= "" %><% end %></td>
+        <td><%= truncate(sshkey.key, :length => 40) %></td>
+        <td><%= link_to 'Show', sshkey %></td>
+        <td><%= link_to 'Edit', edit_sshkey_path(sshkey) %></td>
+        <td><%= link_to 'Destroy', sshkey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sshkey', new_sshkey_path, {:class => "btn btn-primary", :type => "button"} %>

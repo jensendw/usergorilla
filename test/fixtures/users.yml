@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  username: MyString
+  ingroups: MyString
+  shell: MyString
+  password: MyString
+  realname: MyString
+  ensure: MyString
+  ldapowner: MyString
+
+two:
+  username: MyString
+  ingroups: MyString
+  shell: MyString
+  password: MyString
+  realname: MyString
+  ensure: MyString
+  ldapowner: MyString

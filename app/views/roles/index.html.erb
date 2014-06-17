@@ -1,0 +1,27 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Role</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @roles.each do |role| %>
+      <tr>
+        <td><% begin %><%= Role.find(role.id).user.username %><% rescue %><%= "" %><% end %></td>
+        <td><%= role.role %></td>
+        <td><%= link_to 'Show', role, {:class => "btn btn-primary", :type => "button"} %></td>
+        <td><%= link_to 'Edit', edit_role_path(role),{:class => "btn btn-primary", :type => "button"} %></td>
+        <td><%= link_to 'Destroy', role, method: :delete, confirm: 'Are you sure?',:class => "btn btn-primary" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Role', new_role_path,{:class => "btn btn-primary", :type => "button"} %>

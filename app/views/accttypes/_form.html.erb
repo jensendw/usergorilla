@@ -1,0 +1,25 @@
+<%= form_for(@accttype) do |f| %>
+  <% if @accttype.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@accttype.errors.count, "error") %> prohibited this accttype from being saved:</h2>
+
+      <ul>
+      <% @accttype.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field">
+      <%= f.label :user_id %><br>
+      <%= f.collection_select(:user_id, User.all, :id, :username) %>
+    </div>
+    <div class="field">
+      <%= f.label :accttype %><br>
+      <%= f.select :accttype, options_for_select([['human', 'human'],['hosting', 'hosting'],['service','service']]) %>
+    </div>
+  <div class="actions">
+    <%= f.submit "Create", {:class => "btn btn-primary", :type => "button"} %>
+  </div>
+<% end %>

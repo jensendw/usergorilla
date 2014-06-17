@@ -1,0 +1,25 @@
+<%= form_for(@environment) do |f| %>
+    <% if @environment.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@environment.errors.count, "error") %> prohibited this environment from being saved:</h2>
+
+          <ul>
+            <% @environment.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :user_id %><br>
+      <%= f.collection_select(:user_id, User.all, :id, :username) %>
+    </div>
+    <div class="field">
+        <%= f.label :environment %><br>
+        <%= f.select :environment, options_for_select([['dev', 'dev'],['stage', 'stage'],['production', 'production']]) %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

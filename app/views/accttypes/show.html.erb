@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @accttype.user_id %>
+</p>
+
+<p>
+  <strong>Accttype:</strong>
+  <%= @accttype.accttype %>
+</p>
+
+<%= link_to 'Edit', edit_accttype_path(@accttype) %> |
+<%= link_to 'Back', accttypes_path %>

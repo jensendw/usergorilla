@@ -1,0 +1,49 @@
+
+<table class="table">
+
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Ingroups</th>
+      <th>Shell</th>
+      <th>Password</th>
+      <th>Realname</th>
+      <th>Ensure</th>
+      <th>Ldapowner</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+
+      <tr>
+        <td><%= user.username %></td>
+        <td><%= user.ingroups %></td>
+        <td><%= user.shell %></td>
+        <td><%= truncate(user.password, :length => 20) %></td>
+        <td><%= user.realname %></td>
+        <td><%= user.ensure %></td>
+        <td><%= user.ldapowner %></td>
+        <td><%= link_to 'Reset Password', users_reset_password_path(user), {:class => "btn btn-primary", :type => "button"} %></td>
+        <% if session[:isadmin] %>
+            <td><%= link_to 'Show', user, {:class => "btn btn-primary", :type => "button"} %></td>
+            <td><%= link_to 'Edit', edit_user_path(user),{:class => "btn btn-primary", :type => "button"} %></td>
+            <td><%= link_to 'Destroy', user, method: :delete, confirm: 'Are you sure?',:class => "btn btn-primary" %></td>
+        <% end %>
+      </tr>
+
+
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if session[:isadmin] %>
+    <%= link_to 'New User', new_user_path, {:class => "btn btn-primary", :type => "button"} %>
+<% elsif session[:user_id] and @users.length == 0 %>
+    <%= link_to 'Create my Account', create_account_users_path, {:class => "btn btn-primary", :type => "button"} %>
+<% end %>
